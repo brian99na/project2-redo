@@ -64,6 +64,11 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  z-index: 1; 
 }
 
 .navbarClosed {
@@ -223,20 +228,29 @@ button {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  width: 100vw;
+}
+
+.resultsJSXBorder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 2em;
+  padding: 1em;
+  border-radius: .5em;
 }
 
 .resultsJSX img{
-  max-height: 20%;
+  max-height: 40%;
 }
 
 .resultsJSXText {
-  padding: 1em;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  width: 90%;
+  width: 100%;
 }
 
 .cryptoText {
@@ -328,6 +342,31 @@ button {
     padding: 1em;
   }
 
+  .navbar {
+    height: 10vh;
+    padding: 1em;
+  }
+
+  .navbarTitle {
+    font-size: 60px;
+  }
+
+  .navbarIcon {
+    font-size: 70px;
+  }
+
+  .navbarLinks {
+    font-size: 70px;
+  }
+
+  .routePage {
+    transition: filter 1s cubic-bezier(.4,.01,.23,1.01);
+  }
+
+  .routePageUnclickable {
+    filter: blur(16px);
+  }
+
   .home2 .pricesHomeText {
     font-size: 45px;
   }
@@ -350,5 +389,45 @@ button {
 
   .cryptoDropDownActive {
     height: 40vh;
+  }
+
+  .cryptoText {
+    font-size: 50px;
+  }
+
+  .resultsJSXBorder {
+    flex-direction: row;
+    border: 1px solid rgb(15, 15, 15);
+  }
+  
+  .resultsJSXBorder img{
+    max-height: 100%;
+    width: 50%;
+  }
+
+  .inflationText{
+    font-size: 35px;
+  }
+}
+
+@media screen and (min-width: 1366px) {
+  .navbarIcon {
+    display: none;
+  }
+
+  .navbarClosed {
+    right: 0;
+    top: 0;
+    position:inherit;
+    background: none;
+    height: 100%;
+    flex-direction: row;
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .routePageUnclickable {
+    filter: blur(0);
+    pointer-events: auto;
   }
 }

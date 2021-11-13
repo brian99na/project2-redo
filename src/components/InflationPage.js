@@ -42,6 +42,8 @@ function SecondInvestmentDetails(props) {
     <div className='inflationJsx'ref={inflationRef}>
       <h1 className='inflationText'> Cumulative Inflation Rate: </h1>
       <h1 className='boldText'>{inflation.percentage}%</h1>
+      <h1 className='inflationText'>Inflated Price:</h1>
+      <h1 className='boldText'>${inflation.priceNow}</h1>
       <h1 className='inflationText'>You have lost</h1>
       <h1 className='boldText'>${inflation.amountLost}</h1>
       <h1 className='inflationText'>of value by holding </h1>

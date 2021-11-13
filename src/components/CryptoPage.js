@@ -130,18 +130,19 @@ function PricesDetails(props) {
 
   const resultsJSX = resultJSX && (
     <div className="resultsJSX" ref={focusDropDown}>
-      <img className='cryptoCoinImage'src={iconWebsite} alt='coinImage' onError={(e)=>{e.target.src='https://www.pngall.com/wp-content/uploads/2/Question-Mark-PNG-Image.png'}}/>
-      <div className='resultsJSXText'>
-        <h1 className='cryptoText'>
-          Your <span>{results.coin}</span> is now worth
-        </h1>
-        <h1 className='boldText'>${cryptoCalc.priceNow}</h1>
-        <h1 className='cryptoText'>a change of</h1>
-        <h1 className='boldText'>{cryptoCalc.percentChange}%</h1>
+      <div className='resultsJSXBorder'>
+        <img className='cryptoCoinImage'src={iconWebsite} alt='coinImage' onError={(e)=>{e.target.src='https://www.pngall.com/wp-content/uploads/2/Question-Mark-PNG-Image.png'}}/>
+        <div className='resultsJSXText'>
+          <h1 className='cryptoText'>
+            Your <span>{results.coin}</span> is now worth
+          </h1>
+          <h1 className='boldText'>${cryptoCalc.priceNow}</h1>
+          <h1 className='cryptoText'>a change of</h1>
+          <h1 className='boldText'>{cryptoCalc.percentChange}%</h1>
+        </div>
       </div>
     </div>
   );
-
 
   // Use Effects
 
