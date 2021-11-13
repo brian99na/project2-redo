@@ -24,7 +24,41 @@ input {
   flex-direction: column;
 }
 
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 38px;
+}
+
+input {
+  font-size: 40px;
+}
+
+button {
+  border:none;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.boldText {
+  font-weight: 400;
+}
+
 /* header */
+
+.navbarTitle {
+  font-size: 30px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  margin: 10px 15px;
+}
 
 .navbar {
   display: flex;
@@ -38,24 +72,27 @@ input {
   justify-content: center;
   align-items: flex-start;
   gap: 2em;
-  background-color: rgb(255, 255, 112);
+  padding: 0;
+  margin: 0;
+  background-color: rgb(255, 222, 112, 0.9);
   position: fixed;
-  right: -400px;
-  bottom: 0;
+  right: 0;
+  top: 0;
   height: 100vh;
-  width: 70vw;
-  transition: right 1s cubic-bezier(.38,.01,0,.99);
+  width: 0vw;
+  z-index: 1;
+  transition: width 1s cubic-bezier(.4,.01,.23,1.01);
 }
 
 .navbarOpen {
-  right: 0;
+  width: 80vw;
 }
 
 .navbarIcon {
   font-size: 35px;
   margin: 10px 5px;
   transform: rotate(90deg);
-  z-index: 1;
+  z-index: 2;
   transition: transform 1s cubic-bezier(.27,.01,.14,1.52);
 }
 
@@ -66,15 +103,252 @@ input {
 .navbarLinks {
   font-size: 36px;
   padding: .5em;
+  width: 50%;
 }
 
 /* route page */
 
+.routePage {
+  filter: blur(0px);
+  transition: filter 1s cubic-bezier(.4,.01,.23,1.01);
+}
+
+.routePageUnclickable {
+  pointer-events: none;
+  filter: blur(4px);
+}
+
 /* home page */
+
+.homepageArrow {
+  font-size: 32px;
+  height: 10vh;
+}
 
 .homepage {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.home1 {
+  height: 93vh;
+  display: flex;
+  flex-direction: column;
+  padding: 5em 0 0 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 90%;
+  gap: 8px;
+}
+
+.home1 form input{
+  width: 100%;
+}
+
+.home2 {
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1em;
+}
+
+.home2 .prices {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  width: 90%;
+  gap: 10px;
+}
+
+.home2 .pricesHomeText {
+  font-size: 25px;
+}
+
+.home3 {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1em;
+}
+
+.home3 .inflationHome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  width: 90%;
+  gap: 10px;
+}
+
+.home3 .inflationHomeText {
+  font-size: 25px;
+}
+
+/* crypto page */
+
+.cryptoMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cryptoForm {
+  width: 90%;
+  height: 90vh;
+  margin: 20px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: .5em;
+}
+
+.cryptoForm input {
+  width: 100%;
+}
+
+.resultsJSX {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 2em;
+}
+
+.resultsJSX img{
+  max-height: 20%;
+}
+
+.resultsJSXText {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 90%;
+}
+
+.cryptoText {
+  font-size: 25px;
+}
+
+.cryptoJSXDiv{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.cryptoCoinImage {
+  padding: 3.5px;
+}
+
+.cryptoDropDown {
+  height: 0;
+  width: 100%;
+  overflow-y:auto;
+  z-index: 1;
+  transition: height 1s ease;
+}
+
+.cryptoDropDownActive {
+  height: 20vh;
+}
+
+/* inflation page */
+
+.inflationMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100vw;
+}
+
+.inflationMain form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 2em 0 0 0;
+  width: 90%;
+  gap: 5px;
+}
+
+.inflationMain form input{
+  width: 100%;
+}
+
+.inflationForm {
+  height: 85vh;
+}
+
+.inflationJsx {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
+  height: 100vh;
+  width: 80%;
+  gap: .5em;
+}
+
+.inflationText {
+  font-size: 25px;
+}
+
+/* media queries */
+
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 70px;
+  }
+  
+  h2 {
+    font-size: 65px;
+  }
+  
+  input {
+    font-size: 65px;
+  }
+  
+  button {
+    font-size: 25px;
+    padding: 1em;
+  }
+
+  .home2 .pricesHomeText {
+    font-size: 45px;
+  }
+
+  .home3 .inflationHomeText {
+    font-size: 45px;
+  }
+
+  .home2 {
+    width: 100%;
+  }
+
+  .home3 {
+    width: 100%;
+  }
+
+  .cryptoElement {
+    font-size: 40px;
+  }
+
+  .cryptoDropDownActive {
+    height: 40vh;
+  }
 }

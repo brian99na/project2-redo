@@ -7,10 +7,13 @@ function App() {
 
   const [navbarClickable, setNavbarClickable] = useState('false')
 
+  const handleRoutePageClass = navbarClickable ? null : 'routePageUnclickable';
+  const routePageClass = `routePage ${handleRoutePageClass}`
+
   return (
     <div className="App">
-      <Header navbarClickable={navbarClickable} setNavbarClickable={setNavbarClickable}/>
-      <Main navbarClickable={navbarClickable}/>
+      <Header routePageClass={routePageClass} navbarClickable={navbarClickable} setNavbarClickable={setNavbarClickable}/>
+      <Main routePageClass={routePageClass} navbarClickable={navbarClickable}/>
     </div>
   );
 }

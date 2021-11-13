@@ -17,8 +17,8 @@ function SecondInvestmentDetails(props) {
   const inflationCalculator = () => {
     const indexValue = inputValue.date && (12 * (2021 - Number(inputValue.date.slice(6, 10)))) + (9 - Number(inputValue.date.slice(3, 5)))
     const percentage = indexValue && (((274.31 - Number(inflation.data[indexValue][1]))/Number(inflation.data[indexValue][1])) * 100).toFixed(2);
-    const amountLost = ((percentage/100) * result.price).toFixed(2)
-    const currentPrice = Number(amountLost + result.price).toFixed(2)
+    const currentPrice = ((percentage/100 + 1) * result.price).toFixed(2)
+    const amountLost = Number(currentPrice - result.price).toFixed(2)
     setInflation({...inflation, percentage: percentage, priceNow: currentPrice, amountLost: amountLost})
   }
 
@@ -39,10 +39,13 @@ function SecondInvestmentDetails(props) {
   };
 
   const inflationJSX = jsx && (
-    <div ref={inflationRef}>
-      <p > Your money has inflated to a value of ${inflation.priceNow}.</p>
-      <p>This means you have lost <span >${inflation.amountLost} </span> of value.</p>
-      <p>This is a reduction of <span > {inflation.percentage}%</span></p>
+    <div className='inflationJsx'ref={inflationRef}>
+      <h1 className='inflationText'> Cumulative Inflation Rate: </h1>
+      <h1 className='boldText'>{inflation.percentage}%</h1>
+      <h1 className='inflationText'>You have lost</h1>
+      <h1 className='boldText'>${inflation.amountLost}</h1>
+      <h1 className='inflationText'>of value by holding </h1>
+      <h1 className='boldText'>the US Dollar</h1>
     </div>
   );
 
@@ -64,11 +67,9 @@ function SecondInvestmentDetails(props) {
     setInputValue({date: '', price: ''})
   }, [result])
 
-  console.log(result)
-
   return (
-    <div>
-      <form handleSubmit={handleSubmit}>
+    <div className='inflationMain'>
+      <form className='inflationForm'handleSubmit={handleSubmit}>
         <h1>You held your</h1>
         <input
           value={inputValue.price}

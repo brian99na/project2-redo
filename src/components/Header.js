@@ -17,9 +17,11 @@ const Header = (props) => {
   const navbarIconHandle = active ? null : 'navbarIconRotate';
   const navbarIconClass = `navbarIcon ${navbarIconHandle}`
 
+  const titleClass  = `navbarTitle ${props.routePageClass}`
+
   return (
     <nav className='navbar'>
-      <Link to="/" className='navbarTitle'>
+      <Link to="/" className={titleClass}>
         What if?
       </Link>
       <HiTrendingDown className={navbarIconClass} onClick={handleClick}/>

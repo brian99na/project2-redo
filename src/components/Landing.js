@@ -7,16 +7,12 @@ function Landing(props) {
     e.preventDefault();
     props.setMainData({ ...props.mainData, inputPrice: value });
     setValue("");
-    props.priceRef.current.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
-      inline: "center",
-    });
     props.setHomepageVisible(true)
   };
 
   const handleChange = (e) => {
     setValue(e.target.value);
+    props.setHomepageVisible(false)
   };
 
   return (

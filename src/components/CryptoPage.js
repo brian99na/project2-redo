@@ -23,12 +23,6 @@ function PricesDetails(props) {
   const [resultJSX, setResultJSX] = useState(false);
   const focusDropDown = useRef();
 
-  // focusDropDown.current.scrollIntoView({
-  //   behavior: "smooth",
-  //   block: "center",
-  //   inline: "center",
-  // });
-
   // Api Calls and Calculating Functions
 
   const cryptoApiCall = () => {
@@ -62,6 +56,14 @@ function PricesDetails(props) {
     setCryptoCalc({ priceNow: priceLocale, percentChange: percentLocale })
   };
 
+  const scrollFunction = () => {
+    resultsJSX &&  focusDropDown.current.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "center",
+    });
+}
+
   // Handle Changes, Clicks, and Submits
 
   const handleDateChange = (e) => {
@@ -91,10 +93,6 @@ function PricesDetails(props) {
     setResultJSX(true);
   };
 
-console.log(results)
-console.log(parameters)
-console.log(price)
-
   // Crypto Drop Down List
 
   const cryptoStartCoin =
@@ -113,27 +111,37 @@ console.log(price)
 
   const cryptoJSX =
     (parameters.coin && dropDown) &&
-    combList.map((cryptoItem) => (
-      <p
-        className="cryptoElement regularFont"
-        onClick={(e) => handleCryptoClick(e, cryptoItem.id, cryptoItem.name)}
-      >
-        {cryptoItem.name}
-      </p>
-    ));
+    combList.map((cryptoItem) => {
+      let coinImage = `https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/${cryptoItem.id}.png`
+      return (
+      <div className='cryptoJSXDiv'>
+        <img className='cryptoCoinImage' onError={(e)=>{e.target.src='https://assets.coingecko.com/coins/images/19978/thumb/logo.f3a6bd24.png?1636355493'}} src={coinImage}/>
+        <span
+          className="cryptoElement regularFont"
+          onClick={(e) => handleCryptoClick(e, cryptoItem.id, cryptoItem.name)}>
+          {cryptoItem.name}
+        </span>
+      </div>
+    )});
+
+    let iconWebsite = `https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/128/${results.coinId}.png`
 
   // Results JSX
 
   const resultsJSX = resultJSX && (
     <div className="resultsJSX" ref={focusDropDown}>
-      <h1 className="regularFont">
-        Your <span className="resultsJSXCoin">{results.coin}</span> is now worth
-      </h1>
-      <h1 className="mediumFont">${cryptoCalc.priceNow}</h1>
-      <h1 className="regularFont">a change of</h1>
-      <h1 className="mediumFont">{cryptoCalc.percentChange}%</h1>
+      <img className='cryptoCoinImage'src={iconWebsite} alt='coinImage' onError={(e)=>{e.target.src='https://www.pngall.com/wp-content/uploads/2/Question-Mark-PNG-Image.png'}}/>
+      <div className='resultsJSXText'>
+        <h1 className='cryptoText'>
+          Your <span>{results.coin}</span> is now worth
+        </h1>
+        <h1 className='boldText'>${cryptoCalc.priceNow}</h1>
+        <h1 className='cryptoText'>a change of</h1>
+        <h1 className='boldText'>{cryptoCalc.percentChange}%</h1>
+      </div>
     </div>
   );
+
 
   // Use Effects
 
@@ -147,6 +155,7 @@ console.log(price)
 
   useEffect(() => {
     oldApiCall();
+    scrollFunction()
   }, [price.current])
 
   useEffect(() => {
@@ -159,27 +168,28 @@ console.log(price)
   }, [price])
 
 
-  const dropDownCSS = dropDown ? "cryptoDropDownActive" : null;
+  const dropDown1 = dropDown ? "cryptoDropDownActive" : null;
+  const dropDownCSS = parameters.coin.length > 0 ? dropDown1 : null;
   const dropDownVal = `cryptoDropDown ${dropDownCSS}`;
 
   return (
-    <div className="priceDetailMain">
-      <form className="priceDetailForm" onSubmit={handleSubmit}>
-        <span className="regularFont priceDetailTitle">On </span>
+    <div className="cryptoMain">
+      <form className="cryptoForm" onSubmit={handleSubmit}>
+        <h1 className="regularFont priceDetailTitle">On </h1>
         <input
           type="text"
           placeholder="DD-MM-YYYY"
           onChange={handleDateChange}
           value={parameters.date}
         ></input>
-        <h1 className="regularFont">You invested</h1>
+        <h1 >You invested</h1>
         <input
           type="text"
           onChange={handlePriceChange}
           value={parameters.price}
           placeholder="$"
         ></input>
-        <p className="regularFont">into</p>
+        <h1>into</h1>
         <input
           type="text"
           onChange={handleCoinChange}
