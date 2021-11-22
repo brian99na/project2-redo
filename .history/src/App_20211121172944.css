@@ -1,0 +1,689 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&family=Space+Grotesk:wght@400;500&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+input {
+  border: 0.5px solid rgb(80, 76, 143, 0.5);
+  border-radius: 15px;
+  font-size: 40px;
+  padding: 0 0 0 5px;
+  outline-color: rgb(103, 103, 161);
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 38px;
+}
+
+button {
+  border:none;
+  background-color: rgb(57, 67, 97);
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 3px;
+  cursor: pointer;
+  filter: drop-shadow(1px 1px 1px rgb(214, 214, 214));
+}
+
+button:hover {
+  transform: scale(1.01)
+}
+
+.pricesArrow:hover {
+  cursor: pointer;
+}
+
+@keyframes float {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.3);
+  }
+}
+
+.boldText {
+  font-weight: 400;
+}
+
+/* header */
+
+.navbarTitle {
+  font-size: 30px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  margin: 10px 15px;
+}
+
+.navbarMain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 10vh;
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(15px);
+  z-index: 1; 
+  border-bottom: 1px solid rgb(230, 230, 230);
+  filter: drop-shadow(1px 1px 1px rgb(214, 214, 214));
+
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.navbarClosed {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2em;
+  padding: 0;
+  margin: 0;
+  background-color: rgb(255, 222, 112, 0.95);
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 0vw;
+  z-index: 1;
+  transition: width 1s cubic-bezier(.4,.01,.23,1.01);
+  overflow-x: hidden;
+}
+
+.navbarOpen {
+  width: 80vw;
+}
+
+.navbarIcon {
+  font-size: 35px;
+  margin: 10px 5px;
+  transform: rotate(90deg);
+  z-index: 2;
+  transition: transform 1s cubic-bezier(.27,.01,.14,1.52);
+}
+
+.navbarIconRotate {
+  transform: rotate(270deg);
+}
+
+.navbarLinks {
+  font-size: 36px;
+  padding: .5em;
+  width: 50%;
+}
+
+/* route page */
+
+.routePage {
+  filter: blur(0px);
+  transition: filter 1s cubic-bezier(.4,.01,.23,1.01);
+  overflow: hidden;
+
+}
+
+.routePage > * {
+
+}
+
+.routePageUnclickable {
+  pointer-events: none;
+  filter: blur(4px);
+}
+
+/* home page */
+
+.homepageArrow {
+  font-size: 32px;
+  height: 10vh;
+  animation: float 2s ease-in-out infinite;
+}
+
+.homepage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home1 {
+  height: 93vh;
+  display: flex;
+  flex-direction: column;
+  padding: 5em 0 0 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 90%;
+  gap: 8px;
+}
+
+.home1 form input{
+  width: 100%;
+}
+
+.home2 {
+  height: 180vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 0;
+}
+
+.home2 .prices {
+  padding: 2em 0 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  gap: 10px;
+  height: 90vh;
+}
+
+.home2 .prices img {
+  width: 40%;
+}
+
+.home2 .prices .pricesButton {
+  width: 100%;
+}
+
+.home2 .pricesHomeText {
+  font-size: 25px;
+}
+
+.home2  .pricesArrow {
+  font-size: 40px;
+  animation: float 2s ease-in-out infinite;
+}
+
+.home2 .bitcoinDetails {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 90%;
+  height: 80vh;
+}
+
+.home2 .bitcoinDetails a {
+  color: rgb(66, 132, 207);
+  text-decoration: underline 1px;
+}
+
+.home2 .bitcoinDetails h1 {
+  font-size: 30px;
+  padding: 10px 0;
+}
+
+.home2 .bitcoinDetails .bitcoinLink{
+  padding: 15px 0;
+  width: 100%;
+}
+
+.home2 .bitcoinDetails .bitcoinLink button {
+  width: 100%;
+}
+
+.home3 {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 1em;
+}
+
+.home3 .inflationHome {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: center;
+  width: 90%;
+  gap: 10px;
+}
+
+.home3 .inflationHomeText {
+  font-size: 25px;
+}
+
+/* crypto page */
+
+.cryptoMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cryptoForm {
+  width: 90%;
+  height: 90vh;
+  margin: 20px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: .5em;
+}
+
+.cryptoForm input {
+  width: 100%;
+}
+
+.resultsJSX {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.resultsJSXBorder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  padding: 1em;
+  border-radius: .5em;
+}
+
+.resultsJSX img{
+  max-height: 40%;
+}
+
+.resultsJSXText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.cryptoText {
+  font-size: 25px;
+}
+
+.cryptoJSXDiv{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.cryptoCoinImage {
+  padding: 3.5px;
+}
+
+.cryptoDropDown {
+  height: 0;
+  width: 100%;
+  overflow-y:auto;
+  z-index: 1;
+  transition: height 1s ease;
+}
+
+.cryptoDropDownActive {
+  height: 20vh;
+}
+
+.desktopSearch {
+  position: fixed;
+  display: none;
+}
+
+/* inflation page */
+
+.inflationMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100vw;
+}
+
+.inflationMain form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 2em 0 0 0;
+  width: 90%;
+  gap: 5px;
+  height: 85vh;
+}
+
+.inflationMain form input{
+  width: 100%;
+}
+
+.inflationResults {
+  display: flex;
+  justify-content: center;
+  width: 98vw;
+  height: 100vh;
+}
+
+.inflationJsx {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
+  width: 80%;
+  gap: .5em;
+}
+
+.inflationText {
+  font-size: 25px;
+}
+
+.inflationChart {
+  width: 90%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* media queries */
+
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 65px;
+  }
+  
+  h2 {
+    font-size: 60px;
+  }
+  
+  input {
+    font-size: 65px;
+  }
+  
+  button {
+    font-size: 25px;
+    padding: 1em;
+  }
+
+  .navbar {
+    height: 10vh;
+    padding: 1em;
+  }
+
+  .navbarTitle {
+    font-size: 50px;
+  }
+
+  .navbarIcon {
+    font-size: 60px;
+  }
+
+  .navbarLinks {
+    width: 80%;
+    font-size: 70px;
+  }
+
+  .routePage {
+    transition: filter 1s cubic-bezier(.4,.01,.23,1.01);
+  }
+
+  .routePageUnclickable {
+    filter: blur(16px);
+  }
+
+  .homepage .homepageArrow {
+    font-size: 80px;
+  }
+
+  .home2 .pricesHomeText {
+    font-size: 45px;
+  }
+
+  .home2 .pricesArrow {
+    font-size: 80px;
+  }
+
+  .home2 .bitcoinDetails h1 {
+    font-size: 60px;
+  }
+
+  .home2 .bitcoinDetails p {
+    font-size: 24px;
+  }
+
+  .home3 .inflationHomeText {
+    font-size: 45px;
+  }
+
+  .home3 {
+    width: 100%;
+  }
+
+  .cryptoElement {
+    font-size: 40px;
+  }
+
+  .cryptoDropDownActive {
+    height: 40vh;
+  }
+
+  .cryptoText {
+    font-size: 50px;
+  }
+
+  .resultsJSXBorder {
+    flex-direction: row;
+  }
+  
+  .resultsJSXBorder img{
+    max-height: 100%;
+    width: 50%;
+  }
+
+  .inflationText{
+    font-size: 35px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+
+  h1 {
+    font-size: 60px;
+  }
+
+  input {
+    font-size: 60px;
+  }
+
+  .routePageUnclickable {
+    filter: blur(0);
+    pointer-events: auto;
+  }
+
+  .navbarMain {
+    height: 10vh;
+  }
+
+  .navbar {
+    max-width: 1400px;
+  }
+
+  .navbarIcon {
+    display: none;
+  }
+
+  .navbarClosed {
+    position: relative;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: none;
+    gap: 0
+  }
+
+  .navbarLinks {
+    font-size: 30px;
+    text-align: center;
+    padding: 0;
+    width: 100%;
+  }
+
+  .navbarTitle {
+    width: 100%;
+  }
+
+  .home1 {
+    max-width: 1100px;
+  }
+
+  .home2 {
+    gap: 4em;
+  }
+
+  .home2 .prices img {
+    width: 25%;
+  }
+
+  .home2 .prices {
+    width: fit-content;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5em;
+    width: 100%;
+  }
+
+  .home2 .prices .pricesLower {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    width: 50%;
+  }
+
+  .home2 .bitcoinDetails {
+    max-width: 1100px;
+  }
+
+  .home2 .bitcoinDetails h1 {
+    font-size: 64px;
+  }
+
+  .home2 .bitcoinDetails p {
+    font-size: 30px;
+  }
+
+  .home3 {
+    flex-direction: row-reverse;
+    gap: 5em;
+  }
+
+  .home3 .inflationHome {
+    width: fit-content;
+    align-items: flex-end;
+  }
+
+  .inflationMain{
+    padding: 5em 0 0 0;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 5em;
+    flex-wrap: wrap;
+  }
+
+  .inflationMain form {
+    justify-content: flex-start;
+    width: 40%;
+    height: 50vh;
+    padding: 2em;
+    border: 1px solid rgb(127, 134, 197);
+    border-radius: 10px;
+  }
+
+  .inflationMain .inflationResults{
+    width: 40%;
+    height: 50vh;
+  }
+
+  .inflationMain .inflationResults .inflationJsx{
+    padding: 2em;
+    width: fit-content;
+    height: fit-content;
+
+  }
+
+  .cryptoUpper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+  }
+
+  .cryptoForm {
+    width: 100%;
+  } 
+
+  .cryptoForm h1, .inflationForm h1 {
+    font-size: 35px;
+  }
+
+  .cryptoForm input, .inflationForm input {
+    font-size: 35px;
+    width: 100%;
+  }
+
+  .cryptoForm button, .inflationForm button {
+    font-size: 18px;
+  }
+
+  .cryptoDropDownActive {
+    height: 40vh;
+  }
+}

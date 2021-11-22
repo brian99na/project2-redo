@@ -20,18 +20,20 @@ const Header = (props) => {
   const titleClass  = `navbarTitle ${props.routePageClass}`
 
   return (
-    <nav className='navbar'>
-      <Link to="/" className={titleClass}>
-        What if?
-      </Link>
-      <HiTrendingDown className={navbarIconClass} onClick={handleClick}/>
-      <div className={navbarLinkClass}>
-        <Link to="/Crypto-Details" onClick={handleClick} className='navbarLinks'>
-          Crypto Calculator
+    <nav className='navbarMain'>
+      <div className='navbar'>
+        <Link to="/" className={titleClass}>
+          What if?
         </Link>
-        <Link to="/Inflation-Calculator" onClick={handleClick} className='navbarLinks'>
-          Inflation Calculator
-        </Link>
+        <HiTrendingDown className={navbarIconClass} onClick={handleClick}/>
+        <div className={navbarLinkClass}>
+          <Link to="/Crypto-Details" onClick={handleClick} className='navbarLinks'>
+            Crypto Calculator
+          </Link>
+          <Link to="/Inflation-Calculator" onClick={handleClick} className='navbarLinks'>
+            Inflation Calculator
+          </Link>
+        </div>
       </div>
     </nav>
   );

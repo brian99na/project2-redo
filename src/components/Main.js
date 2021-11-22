@@ -11,7 +11,6 @@ function Main(props) {
   const [results, setResults] = useState({priceNow: '', percentChange: ''});
   const [inflation, setInflation] = useState({data: '', percentage: '', amountNow: ''})
 
-
   const currentApiCall = () => {
     fetch(
       `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd`
@@ -70,7 +69,7 @@ function Main(props) {
         <Route
           exact
           path="/Crypto-Details"
-          render={() => <CryptoPage/>}
+          render={() => <CryptoPage />}
         />
         <Route
           exact
