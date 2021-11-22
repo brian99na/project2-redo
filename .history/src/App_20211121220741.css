@@ -385,7 +385,7 @@ button:hover {
 
 .inflationChart {
   display: flex;
-  flex-direction: column;
+  flex-direction: ;
 }
 
 /* inflation page */

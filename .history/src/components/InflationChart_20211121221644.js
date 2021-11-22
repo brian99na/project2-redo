@@ -30,11 +30,11 @@ function InflationChart(props) {
             "October",
             "November",
             "December",
-        ];
+        ]; 03-03-2000
         let inputDate = props.result.date
         let monthNum = Number(inputDate.slice(3, 5)) - 1;
-        let yearNum = inputDate.slice(6, 10);
-        setHeaderDate(`${months[monthNum]} of ${yearNum}`)
+        let yearNum = item.slice(6, 10);
+        setHeaderDate(`${months[monthNum]}, ${yearNum}`)
         chartData && chartData.reverse()
         setChartData(chartData)
     }

@@ -34,7 +34,7 @@ function InflationChart(props) {
         let inputDate = props.result.date
         let monthNum = Number(inputDate.slice(3, 5)) - 1;
         let yearNum = inputDate.slice(6, 10);
-        setHeaderDate(`${months[monthNum]} of ${yearNum}`)
+        setHeaderDate(`${months[monthNum]}, ${yearNum}`)
         chartData && chartData.reverse()
         setChartData(chartData)
     }

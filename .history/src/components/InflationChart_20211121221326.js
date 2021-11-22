@@ -3,7 +3,7 @@ import { ResponsiveContainer ,AreaChart, Area, CartesianGrid, XAxis, YAxis, Tool
 
 function InflationChart(props) {
     const [chartData, setChartData] = useState([])
-    const [headerDate, setHeaderDate] = useState('')
+    const [headerDate, setHeaderDate] = useState()
 
 
     const inflationChartCalculator = () => {
@@ -17,24 +17,6 @@ function InflationChart(props) {
                 }
             )
         })
-        const months = [
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December",
-        ];
-        let inputDate = props.result.date
-        let monthNum = Number(inputDate.slice(3, 5)) - 1;
-        let yearNum = inputDate.slice(6, 10);
-        setHeaderDate(`${months[monthNum]} of ${yearNum}`)
         chartData && chartData.reverse()
         setChartData(chartData)
     }
@@ -47,7 +29,7 @@ function InflationChart(props) {
 
     return (
         <div className='inflationChart' ref={props.chartRef}>
-            <h1>CPI Index Value since {headerDate}</h1>
+            <h1>CPI Index Value since {props.result.date}</h1>
             <ResponsiveContainer width="100%" height='70%'>
                 <AreaChart data={chartData} >
 

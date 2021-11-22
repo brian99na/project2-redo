@@ -2,9 +2,32 @@ import React, { useState, useEffect } from 'react'
 import { ResponsiveContainer ,AreaChart, Area, CartesianGrid, XAxis, YAxis, Tooltip } from 'recharts';
 
 function InflationChart(props) {
-    const [chartData, setChartData] = useState([])
-    const [headerDate, setHeaderDate] = useState('')
+    // const [dateSet, setDateSet] = useState([])
 
+    // let filteredCoinData = props.chartData && props.chartData.filter((coin, index) => {
+    //     return(
+    //         index % ((props.chartData.length/8).toFixed()) === 0
+    //     )
+    // })
+
+    // let mappedCoinPrices = filteredCoinData && filteredCoinData.map((array) => {
+    //     return (array[1])
+    // })
+
+    // const chartDateSet = () => {
+    //     let dividedNumberOfDays = (Number(props.chartData.length)/8).toFixed()
+    //     let dateArr = []
+    //     for (let i=1; i<9; i++) {
+    //         dateArr.push(dividedNumberOfDays * i)
+    //     }
+    //     setDateSet(dateArr)
+    // }
+
+    // useEffect(() => {
+    //     chartDateSet()
+    // }, [props.chartData])
+
+    const [chartData, setChartData] = useState([])
 
     const inflationChartCalculator = () => {
         const indexValue = (props.result && props.result.date )&& (12 * (2021 - Number(props.result.date.slice(6, 10)))) + (11 - Number(props.result.date.slice(3, 5)))
@@ -17,24 +40,6 @@ function InflationChart(props) {
                 }
             )
         })
-        const months = [
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December",
-        ];
-        let inputDate = props.result.date
-        let monthNum = Number(inputDate.slice(3, 5)) - 1;
-        let yearNum = inputDate.slice(6, 10);
-        setHeaderDate(`${months[monthNum]} of ${yearNum}`)
         chartData && chartData.reverse()
         setChartData(chartData)
     }
@@ -47,7 +52,7 @@ function InflationChart(props) {
 
     return (
         <div className='inflationChart' ref={props.chartRef}>
-            <h1>CPI Index Value since {headerDate}</h1>
+            <h1>CPI Index Value since {}</h1>
             <ResponsiveContainer width="100%" height='70%'>
                 <AreaChart data={chartData} >
 
