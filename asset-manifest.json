@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/project2-redo/static/css/main.9c459617.chunk.css",
-    "main.js": "/project2-redo/static/js/main.df3c1250.chunk.js",
-    "main.js.map": "/project2-redo/static/js/main.df3c1250.chunk.js.map",
+    "main.js": "/project2-redo/static/js/main.dc4cead2.chunk.js",
+    "main.js.map": "/project2-redo/static/js/main.dc4cead2.chunk.js.map",
     "runtime-main.js": "/project2-redo/static/js/runtime-main.4fc579af.js",
     "runtime-main.js.map": "/project2-redo/static/js/runtime-main.4fc579af.js.map",
-    "static/js/2.42da859f.chunk.js": "/project2-redo/static/js/2.42da859f.chunk.js",
-    "static/js/2.42da859f.chunk.js.map": "/project2-redo/static/js/2.42da859f.chunk.js.map",
+    "static/js/2.1785f7ba.chunk.js": "/project2-redo/static/js/2.1785f7ba.chunk.js",
+    "static/js/2.1785f7ba.chunk.js.map": "/project2-redo/static/js/2.1785f7ba.chunk.js.map",
     "index.html": "/project2-redo/index.html",
     "static/css/main.9c459617.chunk.css.map": "/project2-redo/static/css/main.9c459617.chunk.css.map",
-    "static/js/2.42da859f.chunk.js.LICENSE.txt": "/project2-redo/static/js/2.42da859f.chunk.js.LICENSE.txt"
+    "static/js/2.1785f7ba.chunk.js.LICENSE.txt": "/project2-redo/static/js/2.1785f7ba.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.4fc579af.js",
-    "static/js/2.42da859f.chunk.js",
+    "static/js/2.1785f7ba.chunk.js",
     "static/css/main.9c459617.chunk.css",
-    "static/js/main.df3c1250.chunk.js"
+    "static/js/main.dc4cead2.chunk.js"
   ]
 }
