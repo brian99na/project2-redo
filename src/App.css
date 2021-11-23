@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&family=Space+Grotesk:wght@400;500&display=swap');
 
+html {
+  margin: 0;
+  padding: 0
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -26,6 +36,15 @@ input {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.bgImage {
+  position: absolute;
+  z-index: -5;
+  padding: 0;
+  top: 100vh;
+  height: 100%;
+  width: 100%;
 }
 
 h1 {
@@ -215,6 +234,9 @@ button:hover {
   align-items: center;
   text-align: center;
   gap: 0;
+  background: url('https://github.com/brian99na/project_1/blob/main/Compressed/Untitled-4.jpg?raw=true');
+  background-size: cover;
+  background-position: center;
 }
 
 .home2 .prices {
@@ -243,6 +265,13 @@ button:hover {
 .home2  .pricesArrow {
   font-size: 40px;
   animation: float 2s ease-in-out infinite;
+}
+
+.home2 .bitcoinDetailsUpper {
+  height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .home2 .bitcoinDetails {
@@ -326,7 +355,7 @@ button:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 80vh;
   width: 100vw;
 }
 
@@ -436,10 +465,16 @@ button:hover {
 
 .inflationChart {
   width: 90%;
-  height: 100vh;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 1em;
+}
+
+.inflationChart h1 {
+  font-size: 20px;
+  text-align: center;
 }
 
 /* media queries */
@@ -528,6 +563,14 @@ button:hover {
     font-size: 50px;
   }
 
+  .resultsJSX {
+    height: 80vh
+  }
+
+  .resultsJSX .homepageArrow {
+    font-size: 40px;
+  }
+
   .resultsJSXBorder {
     flex-direction: row;
   }
@@ -539,6 +582,10 @@ button:hover {
 
   .inflationText{
     font-size: 35px;
+  }
+
+  .inflationChart {
+    height: 90vh;
   }
 }
 
@@ -596,7 +643,7 @@ button:hover {
   }
 
   .homepage {
-    max-width: 1100px;
+    max-width: 100vw;
     gap: 0;
   }
 
@@ -608,23 +655,29 @@ button:hover {
   }
 
   .home1Lower {
-    width: 1100px;
+    height: fit-content;
+    width: fit-content;
+  }
+
+  .landingForm input {
+    width: 300px;
   }
 
   .home2 {
     gap: 0;
-  }
+    width: 100vw;
+}
 
   .home2 .prices {
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 5em;
-    width: 100%;
+    width: 1100px;
   }
 
   .home2 .prices img {
-    width: 25%;
+    width: 20%;
   }
 
   .home2 .prices .pricesLower {
@@ -632,7 +685,11 @@ button:hover {
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
-    width: 75%;
+    width: fit-content;
+    padding: 1em;
+    backdrop-filter: blur(500px);
+    border: 1px solid rgb(226, 226, 226);
+    border-radius: 20px;
   }
 
   .home2 .prices .pricesLower h1 {
@@ -641,6 +698,11 @@ button:hover {
 
   .home2 .bitcoinDetails {
     max-width: 600px;
+    height: fit-content;
+    padding: 1em;
+    backdrop-filter: blur(500px);
+    border: 1px solid rgb(226, 226, 226);
+    border-radius: 20px;
   }
 
   .home2 .bitcoinDetails h1 {
@@ -741,8 +803,11 @@ button:hover {
 
   .cryptoForm {
     width: 45%;
-    height: 70vh;
+    height: fit-content;
     padding: 2em;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 15px;
   } 
 
   .resultsJSX {

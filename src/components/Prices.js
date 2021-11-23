@@ -31,15 +31,17 @@ function Prices(props) {
                 </div>
             </div>
             <MdOutlineKeyboardArrowDown className='pricesArrow' onClick={handleArrowClick} />
-            <div className='bitcoinDetails' ref={bitcoinDetailsRef}>
-                <h1 >What is Bitcoin?</h1>
-                <p>Bitcoin is the first and most valuable cryptocurrency in the world.</p>
-                <p>It is often referred to as</p>
-                <h1 >Digital Gold</h1>
-                <p>and serves a similar purpose in hedging against inflation. The US Government has printed trillions of dollars over the past year and almost</p>
-                <a href='https://www.cityam.com/almost-a-fifth-of-all-us-dollars-were-created-this-year/' rel='noreferrer' target="_blank"><h1>1/5th of all US Dollars were created in 2020.</h1></a>
-                <p>Inflation is a large issue in the US and Bitcoin offers a solution in being a decentralization, deflationary asset that cannot be manipulated by central governments.    </p>
-                <a className='bitcoinLink' href='https://www.nerdwallet.com/article/investing/what-is-bitcoin' rel='noreferrer' target="_blank"><button >Read more about Bitcoin</button></a>
+            <div className='bitcoinDetailsUpper'>
+                <div className='bitcoinDetails' ref={bitcoinDetailsRef}>
+                    <h1 >What is Bitcoin?</h1>
+                    <p>Bitcoin is the first and most valuable cryptocurrency in the world.</p>
+                    <p>It is often referred to as</p>
+                    <h1 >Digital Gold</h1>
+                    <p>and serves a similar purpose in hedging against inflation. The US Government has printed trillions of dollars over the past year and almost</p>
+                    <a href='https://www.cityam.com/almost-a-fifth-of-all-us-dollars-were-created-this-year/' rel='noreferrer' target="_blank"><h1>1/5th of all US Dollars were created in 2020.</h1></a>
+                    <p>Inflation is a large issue in the US and Bitcoin offers a solution in being a decentralization, deflationary asset that cannot be manipulated by central governments.    </p>
+                    <a className='bitcoinLink' href='https://www.nerdwallet.com/article/investing/what-is-bitcoin' rel='noreferrer' target="_blank"><button >Read more about Bitcoin</button></a>
+                </div>
             </div>
         </>
     )
