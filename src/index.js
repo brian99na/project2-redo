@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { HashRouter as Router } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
-  <Router>
+  <BrowserRouter basename='https://brian99na.github.io/what-if/'>
     <React.StrictMode>
       <App />
     </React.StrictMode>
-  </Router>,
+  </BrowserRouter>,
   document.getElementById('root')
 );
