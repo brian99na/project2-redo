@@ -13,7 +13,7 @@ function SecondInvestment(props) {
                 <h1 className='inflationHomeText'>your <span className='boldText'>${props.mainData.inputPrice}</span> has lost</h1>
                 <h1 className='boldText'>{props.inflation.percentage}%</h1>
                 <h1 className='inflationHomeText'>of its value since 2017.</h1>
-                <Link to='/Inflation-Calculator'>
+                <Link to='/Inflation'>
                     <button>Try out some different values for inflation</button>
                 </Link>
             </div>
