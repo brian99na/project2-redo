@@ -73,7 +73,7 @@ function Main(props) {
         />
         <Route
           exact
-          path="/Inflation-Calculator"
+          path="/Inflation"
           render={() => <InflationPage/>}
         />
     </div>

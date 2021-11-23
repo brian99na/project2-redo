@@ -333,6 +333,7 @@ button:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100vw;
 }
 
 .cryptoForm {
@@ -437,6 +438,7 @@ button:hover {
   gap: 5px;
   height: 85vh;
 }
+
 
 .inflationMain form input{
   width: 100%;
@@ -740,11 +742,13 @@ button:hover {
   .inflationMain form {
     justify-content: center;
     width: 40%;
-    height: 50vh;
+    height: fit-content;
     padding: 2em;
     border-radius: 15px;
     margin: 0;
     backdrop-filter: blur(15px);
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 15px;
   }
 
   .inflationMain .inflationResults{

@@ -30,7 +30,7 @@ const Header = (props) => {
           <Link to="/Crypto-Details" onClick={handleClick} className='navbarLinks'>
             Crypto Calculator
           </Link>
-          <Link to="/Inflation-Calculator" onClick={handleClick} className='navbarLinks'>
+          <Link to="/Inflation" onClick={handleClick} className='navbarLinks'>
             Inflation Calculator
           </Link>
         </div>
