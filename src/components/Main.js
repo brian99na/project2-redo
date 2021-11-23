@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route } from "react-router";
+import { Route } from "react-router-dom";
 import Homepage from "./Homepage";
 import CryptoPage from './CryptoPage';
 import InflationPage from './InflationPage';
