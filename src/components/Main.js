@@ -52,6 +52,7 @@ function Main(props) {
     inflationApiCall()
     currentApiCall()
     oldApiCall()
+    document.title = "What if?"
   }, [])
 
   useEffect(() => {
