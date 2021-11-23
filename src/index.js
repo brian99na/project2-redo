@@ -4,7 +4,7 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.render(
-  <BrowserRouter basename='https://brian99na.github.io/what-if/'>
+  <BrowserRouter basename='/what-if'>
     <React.StrictMode>
       <App />
     </React.StrictMode>
