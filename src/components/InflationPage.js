@@ -49,20 +49,30 @@ function SecondInvestmentDetails(props) {
     });
   };
 
-  const inflationJSX = jsx && (
-    <div className='inflationResults'>
-    <div className='inflationJsx'ref={inflationRef}>
-      <h1 className='inflationText'> Cumulative Inflation Rate: </h1>
-      <h1 className='boldText'>{inflation.percentage}%</h1>
-      <h1 className='inflationText'>Inflated Price:</h1>
-      <h1 className='boldText'>${inflation.priceNow}</h1>
-      <h1 className='inflationText'>You have lost</h1>
-      <h1 className='boldText'>${inflation.amountLost}</h1>
-      <h1 className='inflationText'>of value by holding </h1>
-      <h1 className='boldText'>the US Dollar</h1>
-    </div>
-    </div>
+  const inflationJSX = jsx && ( 
+      <div className={jsx ? 'inflationJsx' : 'invisible'} ref={inflationRef}>
+        <h1 className='inflationText'> Cumulative Inflation Rate: </h1>
+        <h1 className='boldText'>{inflation.percentage}%</h1>
+        <h1 className='inflationText'>Inflated Price:</h1>
+        <h1 className='boldText'>${inflation.priceNow}</h1>
+        <h1 className='inflationText'>You have lost</h1>
+        <h1 className='boldText'>${inflation.amountLost}</h1>
+        <h1 className='inflationText'>of value by holding </h1>
+        <h1 className='boldText'>the US Dollar</h1>
+      </div>
   );
+
+  const loadingJSX = 
+      <div className='skeletonInflation'>
+        <div className='skeleton-text'></div>
+        <div className='skeleton-text-big'></div>
+        <div className='skeleton-text'></div>
+        <div className='skeleton-text-big'></div>
+        <div className='skeleton-text'></div>
+        <div className='skeleton-text-big'></div>
+        <div className='skeleton-text'></div>
+        <div className='skeleton-text-big'></div>
+      </div>
 
   const scrollFunction = () => {
       inflationJSX && inflationRef.current.scrollIntoView({
@@ -102,8 +112,10 @@ function SecondInvestmentDetails(props) {
         <br />
         <button onClick={handleSubmit}>Enter</button>
       </form>
-      {jsx && <div className='inflationDivide'></div>}
-      {inflationJSX}
+      <div className='inflationDivide'></div>
+      <div className='inflationResults'>
+        {jsx ? inflationJSX : loadingJSX}
+      </div>
       {jsx && <MdOutlineKeyboardArrowDown className='homepageArrow' onClick={handleArrowClick} />}
       {jsx && <InflationChart chartRef={chartRef}inflation={inflation} jsx={jsx} result={result}/>}
     </div>  

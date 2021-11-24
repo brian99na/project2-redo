@@ -71,12 +71,98 @@ button:hover {
   transform: scale(1.01)
 }
 
+.visible {
+  opacity: 1
+}
+
+.invisible {
+  opacity: 0;
+  transition: 1s ease-in-out;
+}
+
 .pricesArrow:hover {
   cursor: pointer;
 }
 
 .homepageArrow:hover {
   cursor: pointer;
+}
+
+
+.skeletonInflation {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1em;
+  padding: 2em;
+}
+
+.skeletonCrypto {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  padding: 2em;
+  gap: 3em;
+}
+
+.skeleton-icon {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background-color: rgb(206, 206, 206);
+  animation: skeleton 2s infinite ease;
+}
+
+.skeletonTextArea {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.skeletonTextArea .skeleton-text {
+  height: 10px;
+  width: 60%;
+  background-color: rgb(231, 231, 231);
+  animation: skeleton 2s infinite ease;
+}
+
+.skeletonTextArea .skeleton-text-big {
+  height: 20px;
+  width: 90%;
+  background-color: rgb(231, 231, 231);
+  animation: skeleton 2s infinite ease;
+}
+
+.skeleton-text {
+  width: 50%;
+  height: 18px;
+  background-color: rgb(231, 231, 231);
+  animation: skeleton 2s infinite ease;
+}
+
+.skeleton-text-big {
+  width: 90%;
+  height: 20px;
+  background-color: rgb(231, 231, 231);
+  animation: skeleton 2s infinite ease;
+}
+
+@keyframes skeleton {
+  100%, 0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 @keyframes float {
@@ -229,6 +315,7 @@ button:hover {
 .home2 {
   height: 180vh;
   display: flex;
+  width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -236,7 +323,9 @@ button:hover {
   gap: 0;
   background: url('https://github.com/brian99na/project_1/blob/main/Compressed/gradient3.jpg?raw=true');
   background-size: cover;
+  background-repeat: no-repeat;
   background-position: center;
+  overflow: hidden;
 }
 
 .home2 .prices {
@@ -459,6 +548,7 @@ button:hover {
   text-align: center;
   width: 80%;
   gap: .5em;
+  opacity: 1;
 }
 
 .inflationText {
@@ -592,6 +682,16 @@ button:hover {
 }
 
 @media screen and (min-width: 1024px) {
+
+  .skeletonCrypto {
+    border-radius: 15px;
+    border: 1px solid rgb(221, 221, 221);
+  }
+
+  .skeletonInflation {
+    border-radius: 15px;
+    border: 1px solid rgb(221, 221, 221);
+  }
 
   h1 {
     font-size: 50px;
@@ -752,10 +852,15 @@ button:hover {
   }
 
   .inflationMain .inflationResults{
-    width: fit-content;
+    width: 40%;
     height: 50vh;
     backdrop-filter: blur(15px);
     border-radius: 15px;
+    align-items: center;
+  }
+
+  .inflationText {
+    font-size: 20px;
   }
 
   .inflationMain .inflationResults .inflationJsx{
@@ -780,6 +885,12 @@ button:hover {
     font-family: 'Roboto', sans-serif;
   }
 
+  .inflationJsx {
+    height: fit-content;
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 15px;
+  }
+
   .cryptoUpper {
     display: flex;
     flex-direction: column;
@@ -793,7 +904,7 @@ button:hover {
     justify-content: center;
     flex-wrap: wrap;
     width: 1100px;
-    gap: 2em;
+    gap: 5em;
     margin: 5em 0 0 0;
   }
 
@@ -806,7 +917,7 @@ button:hover {
   }
 
   .cryptoForm {
-    width: 45%;
+    width: 40%;
     height: fit-content;
     padding: 2em;
     backdrop-filter: blur(15px);
@@ -817,17 +928,18 @@ button:hover {
   .resultsJSX {
     padding: 2em 0;
     height: 70vh;
-    width: 45%;
+    width: 40%;
     display: flex;
     justify-content: center;
   }
 
   .resultsJSXBorder {
     width: 100%;
+    border: 1px solid rgb(212, 212, 212);
   }
 
   .resultsJSXBorder h1 {
-    font-size: 45px;
+    font-size: 35px;
   }
 
   .cryptoForm h1, .inflationForm h1 {

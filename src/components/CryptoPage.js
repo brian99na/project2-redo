@@ -150,7 +150,6 @@ function PricesDetails(props) {
   // Results JSX
 
   const resultsJSX = resultJSX && (
-    <div className="resultsJSX" ref={focusDropDown}>
       <div className='resultsJSXBorder'>
         <img className='cryptoCoinImage'src={iconWebsite} alt='coinImage' onError={(e)=>{e.target.src='https://www.pngall.com/wp-content/uploads/2/Question-Mark-PNG-Image.png'}}/>
         <div className='resultsJSXText'>
@@ -162,8 +161,20 @@ function PricesDetails(props) {
           <h1 className='boldText'>{cryptoCalc.percentChange}%</h1>
         </div>
       </div>
-    </div>
   );
+
+  const loadingJSX = 
+      <div className='skeletonCrypto'>
+        <div className='skeleton-icon'></div>
+        <div className='skeletonTextArea'>
+          <div className='skeleton-text'></div>
+          <div className='skeleton-text-big'></div>
+          <div className='skeleton-text'></div>
+          <div className='skeleton-text-big'></div>
+          <div className='skeleton-text'></div>
+          <div className='skeleton-text-big'></div>
+        </div>
+      </div>
 
   // Use Effects
 
@@ -225,8 +236,10 @@ function PricesDetails(props) {
           </div>
           <button onClick={handleSubmit}>Calculate</button>
         </form>
-        {resultJSX && <div className='inflationDivide'></div>}
-        {resultsJSX}
+        <div className='inflationDivide'></div>
+        <div className="resultsJSX" ref={focusDropDown}>
+          {resultJSX ? resultsJSX : loadingJSX}
+        </div>
         {resultJSX && <MdOutlineKeyboardArrowDown className='homepageArrow' onClick={handleArrowClick} />}
         {(resultJSX && cryptoData) && <CryptoChart chartRef={chartRef} cryptoData={cryptoData} results={results} />}
       </div>
