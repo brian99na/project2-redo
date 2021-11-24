@@ -2,7 +2,8 @@
 
 html {
   margin: 0;
-  padding: 0
+  padding: 0;
+  -webkit-transform: translate3d(0,0,0);
 }
 
 body {
@@ -321,12 +322,14 @@ button:hover {
   align-items: center;
   text-align: center;
   gap: 0;
-  background: url('https://github.com/brian99na/project_1/blob/main/Compressed/gradient3.jpg?raw=true');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
   overflow: hidden;
+    background: url('https://github.com/brian99na/project_1/blob/main/Compressed/gradient3.jpg?raw=true');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
+
+  
 
 .home2 .prices {
   padding: 2em 0 0 0;
