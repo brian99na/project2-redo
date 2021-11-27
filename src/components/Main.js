@@ -28,7 +28,7 @@ function Main(props) {
   };
 
   const inflationApiCall = () => {
-    fetch(`https://data.nasdaq.com/api/v3/datasets/RATEINF/CPI_USA.json?api_key=${process.env.REACT_APP_NASDAQ_API_KEY}`)
+    fetch(`https://data.nasdaq.com/api/v3/datasets/RATEINF/CPI_USA.json?api_key=dDi1qzdRACZxKWbNGJRx`)
       .then((res) => res.json())
       .then((data) => setInflation({...inflation, data: data.dataset.data}))
   };
