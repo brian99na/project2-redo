@@ -113,8 +113,9 @@ Minimum Viable Product - This is a way of keeping track of what I *need* to get 
 | Price Details | Links to its own page and gives greater details on the current price |
 | SecondStrat Details | Same as price details |
 
+
 | To Do's | Priority | Estimated Time | Time Invested |
-| --- | :---: |  :---: | :---: | :---: |
+| --- | :---: |  :---: | :---: |
 | Create Required Components, setup routes and links | H | 1hr | 1hr | 
 | Create Homepage (Call APIs, save data to states, useEffect chaining, passing props) | H | 15hrs | 30hrs | 
 | Create Price & Inflation Component (Calculate current price, add inputs/form, jsx)| H | 15hrs | 30hrs | 
