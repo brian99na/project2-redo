@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { useRef } from "react";
+import Video from './cionpiggie_VP9.webm'
 
 function Prices(props) {
     
@@ -19,7 +20,10 @@ function Prices(props) {
     return (
         <>
             <div className='prices'>
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/BTC_Logo.svg/183px-BTC_Logo.svg.png" alt='btc'/>
+                {/* <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/BTC_Logo.svg/183px-BTC_Logo.svg.png" alt='btc'/> */}
+                <div className='coinFlip'>
+                    <video controls autostart autoPlay loop controls={false} src={Video} type="video/webm" />
+                </div>
                 <div className='pricesLower'>
                 <h1 className='pricesHomeText'>your <span className='boldText'>${inputAmount}</span> is now worth</h1>
                 <h1 className='boldText'>${props.results.priceNow}</h1>
