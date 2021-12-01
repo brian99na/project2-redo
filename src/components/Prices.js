@@ -17,6 +17,7 @@ function Prices(props) {
         });
       };
 
+
     return (
         <>
             <div className='prices'>
@@ -33,8 +34,8 @@ function Prices(props) {
                     <button className='pricesButton'>Try out a different cryptocurrency here</button>
                 </Link>
                 </div>
+                <MdOutlineKeyboardArrowDown className='pricesArrow' onClick={handleArrowClick} />
             </div>
-            <MdOutlineKeyboardArrowDown className='pricesArrow' onClick={handleArrowClick} />
             <div className='bitcoinDetailsUpper'>
                 <div className='bitcoinDetails' ref={bitcoinDetailsRef}>
                     <h1 >What is Bitcoin?</h1>
@@ -46,6 +47,7 @@ function Prices(props) {
                     <p>Inflation is a large issue in the US and Bitcoin offers a solution in being a decentralization, deflationary asset that cannot be manipulated by central governments.    </p>
                     <a className='bitcoinLink' href='https://www.nerdwallet.com/article/investing/what-is-bitcoin' rel='noreferrer' target="_blank"><button >Read more about Bitcoin</button></a>
                 </div>
+                <MdOutlineKeyboardArrowDown className='bitcoinArrow' onClick={props.handleInflationClick} />
             </div>
         </>
     )

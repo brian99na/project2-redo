@@ -9,14 +9,6 @@ function Homepage(props) {
   const priceRef = useRef();
   const inflationRef = useRef();
 
-  const handleArrowClick = () => {
-    inflationRef.current.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
-      inline: "center",
-    });
-  };
-
   useEffect(()=>{
     homepageVisible && priceRef.current.scrollIntoView({
       behavior: "smooth",
@@ -24,15 +16,22 @@ function Homepage(props) {
     });
   },[homepageVisible])
 
+  const handleInflationClick = () => {
+    inflationRef.current.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "center",
+    });
+  };
+
   return (
     <div className='homepage'>
       <section className='home1'>
         <Landing priceRef={priceRef} mainData={props.mainData} setMainData={props.setMainData} setHomepageVisible={setHomepageVisible}/>
       </section>
       {homepageVisible && <section ref={priceRef} className='home2'>
-        <Prices results={props.results} mainData={props.mainData}/>
+        <Prices results={props.results} mainData={props.mainData} inflationRef={props.inflationRef} handleInflationClick={handleInflationClick}/>
       </section>}
-      {homepageVisible && <MdOutlineKeyboardArrowDown className='homepageArrow' onClick={handleArrowClick} />}
       {homepageVisible && <section ref={inflationRef} className='home3'>
         <SecondInvestment inflation={props.inflation} mainData={props.mainData}/>
       </section>}

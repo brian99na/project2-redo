@@ -65,7 +65,7 @@ button {
   font-weight: 400;
   border-radius: 3px;
   cursor: pointer;
-  filter: drop-shadow(1px 1px 1px rgb(214, 214, 214));
+  transition: 0.3s ease;
 }
 
 button:hover {
@@ -81,7 +81,7 @@ button:hover {
   transition: 1s ease-in-out;
 }
 
-.pricesArrow:hover {
+.pricesArrow:hover, .bitcoinArrow:hover {
   cursor: pointer;
 }
 
@@ -208,7 +208,6 @@ button:hover {
   backdrop-filter: blur(15px);
   z-index: 1; 
   border-bottom: 1px solid rgb(230, 230, 230);
-  filter: drop-shadow(1px 1px 1px rgb(214, 214, 214));
 
 }
 
@@ -321,7 +320,7 @@ button:hover {
   justify-content: center;
   align-items: center;
   text-align: center;
-  gap: 0;
+  gap: 2em;
   overflow: hidden;
 }
 
@@ -334,6 +333,7 @@ button:hover {
   width: 90%;
   gap: 10px;
   height: 90vh;
+  position: relative;
 }
 
 .home2 .prices .coinFlip {
@@ -355,9 +355,13 @@ button:hover {
   font-size: 25px;
 }
 
-.home2  .pricesArrow {
+.home2  .pricesArrow, .bitcoinArrow {
+  position: absolute;
   font-size: 40px;
   animation: float 2s ease-in-out infinite;
+  width: 100%;
+  margin: 0 auto;
+  top: 80vh;
 }
 
 .home2 .bitcoinDetailsUpper {
@@ -404,6 +408,15 @@ button:hover {
   align-items: center;
   text-align: center;
   gap: 1em;
+}
+
+.home3lower {
+  height: 85%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
 }
 
 .home3 .inflationHome {
@@ -631,7 +644,7 @@ button:hover {
     width: 20%;
   }
 
-  .home2 .pricesArrow {
+  .home2 .pricesArrow, .bitcoinArrow {
     font-size: 80px;
   }
 
@@ -691,6 +704,10 @@ button:hover {
 
 @media screen and (min-width: 1024px) {
 
+  .pricesLower:hover, .bitcoinDetails:hover {
+    transform: translateY(-2%);
+  } 
+
   .skeletonCrypto {
     border-radius: 15px;
     border: 1px solid rgb(221, 221, 221);
@@ -732,13 +749,14 @@ button:hover {
 
   .navbarClosed {
     position: relative;
+    display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
     background: none;
-    gap: 0
+    gap: 1em;
   }
 
   .navbarLinks {
@@ -746,7 +764,15 @@ button:hover {
     text-align: center;
     padding: 0;
     width: 100%;
+    padding: 10px 0;
+    border-radius: 5px;
+    transition: 0.3s ease
   }
+
+  .navbarLinks:hover {
+    background-color: rgb(250, 235, 147);
+    color: rgb(58, 58, 58);
+  } 
 
   .navbarTitle {
     width: 100%;
@@ -774,8 +800,9 @@ button:hover {
   }
 
   .home2 {
-    gap: 0;
+    gap: 10vh;
     width: 100vw;
+    overflow: visible;
 }
 
   .home2 .prices {
@@ -784,10 +811,19 @@ button:hover {
     align-items: center;
     gap: 5em;
     width: 1100px;
+    aspect-ratio: 1;
+    border-radius: 30px;
+    background-image: url("./components/images/overlay.png"), linear-gradient(180deg, rgba(242,203,116,1) 0%, rgba(255,252,234,1) 100%);
+    transition: 0.3s ease;
+  }
+
+  .home2 .prices:hover, .bitcoinDetailsUpper:hover, .home3lower:hover {
+    transform: translateY(-2%);
+    filter: drop-shadow(0px 1px 15px rgb(226, 226, 226))
   }
 
   .home2 .prices .coinFlip {
-    width: 25%;
+    width: 40%;
     display: flex;
     align-items: flex-end;
   }
@@ -803,14 +839,25 @@ button:hover {
     align-items: flex-start;
     text-align: left;
     width: fit-content;
-    padding: 1em;
+    padding: 2em;
     backdrop-filter: blur(500px);
-    border: 1px solid rgb(226, 226, 226);
+    border: 1px solid rgb(160, 153, 54);
     border-radius: 20px;
+    transition: 0.3s ease;
   }
 
   .home2 .prices .pricesLower h1 {
     font-size: 40px;
+  }
+
+  .home2 .bitcoinDetailsUpper {
+    width: 1100px;
+    aspect-ratio: 1;
+    border-radius: 30px;
+    background-image: url("./components/images/overlay.png"), linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(93,151,204,1) 100%);
+    color: rgb(0, 0, 0);
+    position: relative;
+    transition: 0.3s ease;
   }
 
   .home2 .bitcoinDetails {
@@ -820,6 +867,7 @@ button:hover {
     backdrop-filter: blur(500px);
     border: 1px solid rgb(226, 226, 226);
     border-radius: 20px;
+    transition: 0.3s ease;
   }
 
   .home2 .bitcoinDetails h1 {
@@ -830,9 +878,19 @@ button:hover {
     font-size: 20px;
   }
 
-  .home3 {
+  .home2 .bitcoinArrow {
+    position: absolute;
+    top: 72vh;
+    width: 100%;
+  }
+
+  .home3lower {
     flex-direction: row-reverse;
-    gap: 5em;
+    width: 1100px;
+    height: 900px;
+    background-image: url("./components/images/overlay.png"), linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(93, 93, 93) 100%); 
+    transition: 0.3s ease;
+
   }
 
   .home3 .inflationHome {
