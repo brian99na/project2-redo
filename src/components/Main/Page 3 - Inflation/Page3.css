@@ -1,0 +1,137 @@
+.inflationMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100vw;
+}
+
+.inflationMain form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 2em 0 0 0;
+  width: 90%;
+  gap: 5px;
+  height: 85vh;
+}
+
+.inflationMain form input {
+  width: 100%;
+}
+
+.inflationResults {
+  display: flex;
+  justify-content: center;
+  width: 98vw;
+  height: 80vh;
+}
+
+.inflationJsx {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: center;
+  width: 80%;
+  gap: 0.5em;
+  opacity: 1;
+}
+
+.inflationText {
+  font-size: 25px;
+}
+
+.inflationChart {
+  width: 90%;
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.inflationChart h1 {
+  font-size: 20px;
+  text-align: center;
+}
+
+.inflationChart {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (min-width: 768px) {
+  .inflationText {
+    font-size: 35px;
+  }
+
+  .inflationChart {
+    height: 90vh;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .inflationMain {
+    padding: 10em 0 0 0;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 5em;
+    flex-wrap: wrap;
+    max-width: 1100px;
+  }
+
+  .inflationMain form {
+    justify-content: center;
+    width: 40%;
+    height: fit-content;
+    padding: 2em;
+    border-radius: 15px;
+    margin: 0;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 15px;
+  }
+
+  .inflationMain .inflationResults {
+    width: 40%;
+    height: 50vh;
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    align-items: center;
+  }
+
+  .inflationText {
+    font-size: 20px;
+  }
+
+  .inflationMain .inflationResults .inflationJsx {
+    padding: 2em;
+    width: 100%;
+  }
+
+  .inflationMain .homepageArrow {
+    font-size: 30px;
+    width: 100%;
+  }
+
+  .inflationDivide {
+    width: 1px;
+    height: 50vh;
+    border-right: 1px solid gray;
+  }
+
+  .inflationChart {
+    width: 100%;
+    height: 85vh;
+    font-family: "Roboto", sans-serif;
+  }
+
+  .inflationJsx {
+    height: fit-content;
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 15px;
+  }
+}

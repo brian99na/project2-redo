@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Route } from "react-router-dom";
-import Homepage from "./Homepage";
-import CryptoPage from './CryptoPage';
-import InflationPage from './InflationPage';
+import Homepage from "./Page 1/Homepage";
+import CryptoPage from './Page 2 - Crypto/CryptoPage';
+import InflationPage from './Page 3 - Inflation/InflationPage';
 
 function Main(props) {
   const [mainData, setMainData] = useState({inputPrice: '', date: '30-03-2017', coin: 'bitcoin'})

@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import InflationChart from "./InflationChart";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import './Page3.css'
 
 
 function SecondInvestmentDetails(props) {

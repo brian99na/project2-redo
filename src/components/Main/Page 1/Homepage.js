@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import Prices from "./Prices";
 import SecondInvestment from "./SecondInvestment";
 import Landing from "./Landing";
-import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import './Page1.css'
 
 function Homepage(props) {
   const [homepageVisible, setHomepageVisible] = useState(false)

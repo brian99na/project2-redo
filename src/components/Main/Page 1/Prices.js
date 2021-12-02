@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { useRef } from "react";
-import Video from './cionpiggie_VP9.webm'
+import Video from '../../videos/cionpiggie_VP9.webm'
 
 function Prices(props) {
     

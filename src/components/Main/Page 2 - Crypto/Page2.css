@@ -1,0 +1,194 @@
+.cryptoMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+}
+
+.cryptoForm {
+  width: 90%;
+  height: 90vh;
+  margin: 20px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.5em;
+}
+
+.cryptoForm input {
+  width: 100%;
+}
+
+.resultsJSX {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: 100vw;
+}
+
+.resultsJSXBorder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  padding: 1em;
+  border-radius: 0.5em;
+}
+
+.resultsJSX img {
+  max-height: 40%;
+}
+
+.resultsJSXText {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.cryptoText {
+  font-size: 25px;
+}
+
+.cryptoJSXDiv {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.cryptoCoinImage {
+  padding: 3.5px;
+}
+
+.cryptoDropDown {
+  height: 0;
+  width: 100%;
+  overflow-y: auto;
+  z-index: 1;
+  transition: height 1s ease;
+}
+
+.cryptoDropDownActive {
+  height: 20vh;
+}
+
+.desktopSearch {
+  position: fixed;
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .cryptoElement {
+    font-size: 40px;
+  }
+
+  .cryptoDropDownActive {
+    height: 40vh;
+  }
+
+  .cryptoText {
+    font-size: 50px;
+  }
+
+  .resultsJSX {
+    height: 80vh;
+  }
+
+  .resultsJSX .homepageArrow {
+    font-size: 40px;
+  }
+
+  .resultsJSXBorder {
+    flex-direction: row;
+  }
+
+  .resultsJSXBorder img {
+    max-height: 100%;
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .cryptoUpper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1100px;
+  }
+
+  .cryptoMain {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 1100px;
+    gap: 5em;
+    margin: 5em 0 0 0;
+  }
+
+  .cryptoMain .inflationDivide {
+    height: 70vh;
+  }
+
+  .cryptoMain .homepageArrow {
+    width: 100%;
+  }
+
+  .cryptoForm {
+    width: 40%;
+    height: fit-content;
+    padding: 2em;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 15px;
+  }
+
+  .resultsJSX {
+    padding: 2em 0;
+    height: 70vh;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .resultsJSXBorder {
+    width: 100%;
+    border: 1px solid rgb(212, 212, 212);
+  }
+
+  .resultsJSXBorder h1 {
+    font-size: 35px;
+  }
+
+  .cryptoForm h1,
+  .inflationForm h1 {
+    font-size: 35px;
+  }
+
+  .cryptoForm input,
+  .inflationForm input {
+    font-size: 35px;
+    width: 100%;
+  }
+
+  .cryptoForm button,
+  .inflationForm button {
+    font-size: 18px;
+  }
+
+  .cryptoDropDownActive {
+    height: 40vh;
+  }
+
+  .cryptoJSXDiv:hover {
+    cursor: pointer;
+    border: 1px solid rgb(230, 223, 131);
+    border-radius: 15px;
+  }
+}

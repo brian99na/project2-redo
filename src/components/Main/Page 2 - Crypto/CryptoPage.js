@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import CryptoChart from "./CryptoChart";
+import './Page2.css'
 
 function PricesDetails(props) {
   const [cryptoList, setCryptoList] = useState([]);
