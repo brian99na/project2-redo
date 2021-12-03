@@ -12,7 +12,8 @@ function Homepage(props) {
   useEffect(()=>{
     homepageVisible && priceRef.current.scrollIntoView({
       behavior: "smooth",
-
+      block: "center",
+      inline: "center",
     });
   },[homepageVisible])
 
@@ -29,8 +30,8 @@ function Homepage(props) {
       <section className='home1'>
         <Landing priceRef={priceRef} mainData={props.mainData} setMainData={props.setMainData} setHomepageVisible={setHomepageVisible}/>
       </section>
-      {homepageVisible && <section ref={priceRef} className='home2'>
-        <Prices results={props.results} mainData={props.mainData} inflationRef={props.inflationRef} handleInflationClick={handleInflationClick}/>
+      {homepageVisible && <section className='home2'>
+        <Prices priceRef={priceRef}results={props.results} mainData={props.mainData} inflationRef={props.inflationRef} handleInflationClick={handleInflationClick}/>
       </section>}
       {homepageVisible && <section ref={inflationRef} className='home3'>
         <SecondInvestment inflation={props.inflation} mainData={props.mainData}/>

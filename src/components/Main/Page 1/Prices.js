@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Video from '../../videos/cionpiggie_VP9.webm'
 
 function Prices(props) {
+    const [dimensions, setDimensions] = useState()
     
     const inputAmount = props.mainData.inputPrice && Number(props.mainData.inputPrice).toLocaleString()
     const bitcoinDetailsRef = useRef()
@@ -17,13 +18,16 @@ function Prices(props) {
         });
       };
 
+    useEffect(() => {
+
+    }, [])
 
     return (
         <>
-            <div className='prices'>
+            <div className='prices'ref={props.priceRef}>
                 {/* <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/BTC_Logo.svg/183px-BTC_Logo.svg.png" alt='btc'/> */}
                 <div className='coinFlip'>
-                    <video controls autostart autoPlay loop controls={false} src={Video} type="video/webm" />
+                    {window.innerHeight < window.innerWidth ? <video controls autostart autoPlay loop controls={false} src={Video} className='coinVideo' type="video/webm" /> : <img className='coinImg' src='https://bit.ly/3plwE0I' alt='img'/>}
                 </div>
                 <div className='pricesLower'>
                 <h1 className='pricesHomeText'>your <span className='boldText'>${inputAmount}</span> is now worth</h1>

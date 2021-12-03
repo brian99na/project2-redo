@@ -58,8 +58,10 @@ h2 {
 
 button {
   border: none;
-  background-color: rgb(57, 67, 97);
-  color: white;
+  background-color: rgba(192, 192, 192, 0.3);
+  backdrop-filter: blur(55px);
+  color: black;
+  border: 1px solid white;
   padding: 10px;
   font-size: 16px;
   font-weight: 400;
@@ -69,7 +71,8 @@ button {
 }
 
 button:hover {
-  transform: scale(1.01);
+  transform: translateY(-2px);
+  color: black;
 }
 
 .boldText {
