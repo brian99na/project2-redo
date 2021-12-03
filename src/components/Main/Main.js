@@ -11,6 +11,8 @@ function Main(props) {
   const [results, setResults] = useState({priceNow: '', percentChange: ''});
   const [inflation, setInflation] = useState({data: '', percentage: '', amountNow: ''})
 
+// APIs
+
   const currentApiCall = () => {
     fetch(
       `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd`
@@ -26,6 +28,8 @@ function Main(props) {
       .then((res) => res.json())
       .then((data) => setCoinPricePast(data.market_data.current_price.usd))
   };
+
+// Calculators
 
   const inflationApiCall = () => {
     fetch(`https://data.nasdaq.com/api/v3/datasets/RATEINF/CPI_USA.json?api_key=dDi1qzdRACZxKWbNGJRx`)
@@ -47,6 +51,8 @@ function Main(props) {
     const amountNow = (percentage / 100) + 1
     setInflation({...inflation, percentage: percentage, amountNow: amountNow})
   }
+
+// UseEffects
 
   useEffect(() => {
     inflationApiCall()

@@ -1,14 +1,11 @@
 import { Link } from "react-router-dom";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import Video from '../../videos/cionpiggie_VP9.webm'
 
 function Prices(props) {
-    const [dimensions, setDimensions] = useState()
-    
     const inputAmount = props.mainData.inputPrice && Number(props.mainData.inputPrice).toLocaleString()
     const bitcoinDetailsRef = useRef()
-
 
     const handleArrowClick = () => {
         bitcoinDetailsRef.current.scrollIntoView({
@@ -17,10 +14,6 @@ function Prices(props) {
           inline: "center",
         });
       };
-
-    useEffect(() => {
-
-    }, [])
 
     return (
         <>

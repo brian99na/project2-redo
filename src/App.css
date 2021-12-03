@@ -75,6 +75,20 @@ button:hover {
   color: black;
 }
 
+.errorMsg {
+  animation: 1s error infinite ease;
+  color: red;
+}
+
+@keyframes error {
+  100%, 0% {
+    opacity: 0
+  }
+  50% {
+    opacity: 1
+  }
+}
+
 .boldText {
   font-weight: 400;
 }

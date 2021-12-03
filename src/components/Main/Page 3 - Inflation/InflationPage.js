@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import InflationChart from "./InflationChart";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import './Page3.css'
+import moment from 'moment'
 
 
 function SecondInvestmentDetails(props) {
@@ -11,6 +12,7 @@ function SecondInvestmentDetails(props) {
   const [jsx, setJsx] = useState(false);
   const inflationRef = useRef();
   const chartRef = useRef()
+  const [errorMsg, setErrorMsg] = useState('')
 
   const inflationApiCall = () => {
     fetch("https://data.nasdaq.com/api/v3/datasets/RATEINF/CPI_USA.json?api_key=dDi1qzdRACZxKWbNGJRx")
@@ -38,8 +40,14 @@ function SecondInvestmentDetails(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    setResult({...inputValue})
-    setJsx(true);
+    if (moment(inputValue.date, "DD-MM-YYYY", true).isValid()) {
+      setResult({...inputValue})
+      setJsx(true);
+      setErrorMsg('')
+    } else {
+      setErrorMsg('Error: Date is formatted incorrectly or unavailable')
+    }
+
   };
 
   const handleArrowClick = () => {
@@ -112,6 +120,7 @@ function SecondInvestmentDetails(props) {
         ></input>
         <br />
         <button onClick={handleSubmit}>Enter</button>
+        {errorMsg && <h1 className='errorMsg'>{errorMsg}</h1>}
       </form>
       <div className='inflationDivide'></div>
       <div className='inflationResults'>

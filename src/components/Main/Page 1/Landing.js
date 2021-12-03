@@ -7,18 +7,18 @@ function Landing(props) {
     e.preventDefault();
     props.setMainData({ ...props.mainData, inputPrice: value });
     setValue("");
-    props.setHomepageVisible(true)
+    props.setHomepageVisible(true);
   };
 
   const handleChange = (e) => {
     setValue(e.target.value);
-    props.setHomepageVisible(false)
+    props.setHomepageVisible(false);
   };
 
   return (
-    <div className='home1Lower'>
+    <div className="home1Lower">
       <h1>you invested</h1>
-      <form className='landingForm'onSubmit={handleSubmit}>
+      <form className="landingForm" onSubmit={handleSubmit}>
         <input
           value={value}
           type="text"

@@ -113,6 +113,12 @@
     gap: 1em;
   }
 
+  .navbarClosed a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .navbarLinks {
     font-size: 30px;
     text-align: center;

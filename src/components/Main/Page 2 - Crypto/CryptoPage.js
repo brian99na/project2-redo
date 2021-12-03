@@ -1,31 +1,33 @@
 import React, { useEffect, useRef, useState } from "react";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import CryptoChart from "./CryptoChart";
-import './Page2.css'
+import "./Page2.css";
+import moment from 'moment';
 
 function PricesDetails(props) {
   const [cryptoList, setCryptoList] = useState([]);
   const [parameters, setParameters] = useState({
-    date: '',
-    price: '',
-    coin: '',
+    date: "",
+    price: "",
+    coin: "",
   });
   const [results, setResults] = useState({
-    date: '',
-    price: '',
-    coin: '',
-    coinId: '',
+    date: "",
+    price: "",
+    coin: "",
+    coinId: "",
   });
-  const [price, setPrice] = useState({current: '', past: ''});
+  const [price, setPrice] = useState({ current: "", past: "" });
   const [cryptoCalc, setCryptoCalc] = useState({
-    priceNow: '',
-    percentChange: '',
+    priceNow: "",
+    percentChange: "",
   });
   const [dropDown, setDropDown] = useState(false);
   const [resultJSX, setResultJSX] = useState(false);
   const focusDropDown = useRef();
-  const [cryptoData, setCryptoData] = useState([])
-  const chartRef = useRef()
+  const [cryptoData, setCryptoData] = useState([]);
+  const chartRef = useRef();
+  const [errorMsg, setErrorMsg] = useState('')
 
   // Api Calls and Calculating Functions
 
@@ -40,7 +42,8 @@ function PricesDetails(props) {
       `https://api.coingecko.com/api/v3/simple/price?ids=${results.coinId}&vs_currencies=usd`
     )
       .then((res) => res.json())
-      .then((data) => data[results.coinId] && setPrice({...price, current: data[results.coinId].usd}));
+      .then((data) => data[results.coinId] && setPrice({ ...price, current: data[results.coinId].usd }))
+      .catch((error) => setErrorMsg(`Error: ${error}`));
   };
 
   const oldApiCall = () => {
@@ -48,35 +51,43 @@ function PricesDetails(props) {
       `https://api.coingecko.com/api/v3/coins/${results.coinId}/history?date=${results.date}&localization=false`
     )
       .then((res) => res.json())
-      .then((data) => data.market_data && setPrice({...price, past: data.market_data.current_price.usd})
+      .then(
+        (data) =>
+          data.market_data &&
+          setPrice({ ...price, past: data.market_data.current_price.usd })
       );
   };
 
   const chartApiCall = () => {
-    let day = new Date()
-    let dayValue = (2021 - Number(results.date.slice(6, 10))) * 365 + ((Number(day.getMonth()) + 1) - Number(results.date.slice(3, 5))) * 30
+    let day = new Date();
+    let dayValue =
+      (2021 - Number(results.date.slice(6, 10))) * 365 +
+      (Number(day.getMonth()) + 1 - Number(results.date.slice(3, 5))) * 30;
     fetch(
       `https://api.coingecko.com/api/v3/coins/${results.coinId}/market_chart?vs_currency=usd&days=${dayValue}&interval=monthly`
     )
       .then((res) => res.json())
-      .then((data) => setCryptoData(data.prices))
+      .then((data) => setCryptoData(data.prices));
   };
 
   const cryptoCalculator = () => {
-    const currentPrice = ((results.price * price.current) / price.past).toFixed(2);
+    const currentPrice = ((results.price * price.current) / price.past).toFixed(
+      2
+    );
     const percentChange = ((currentPrice / results.price) * 100).toFixed(0);
     const priceLocale = Number(currentPrice).toLocaleString();
     const percentLocale = Number(percentChange).toLocaleString();
-    setCryptoCalc({ priceNow: priceLocale, percentChange: percentLocale })
+    setCryptoCalc({ priceNow: priceLocale, percentChange: percentLocale });
   };
 
   const scrollFunction = () => {
-    resultsJSX &&  focusDropDown.current.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
-      inline: "center",
-    });
-}
+    resultsJSX &&
+      focusDropDown.current.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "center",
+      });
+  };
 
   // Handle Changes, Clicks, and Submits
 
@@ -97,7 +108,11 @@ function PricesDetails(props) {
   };
 
   const handleCryptoClick = (e, cryptoItemId, cryptoItemName) => {
-    setParameters({ ...parameters, coin: cryptoItemName, coinId: cryptoItemId });
+    setParameters({
+      ...parameters,
+      coin: cryptoItemName,
+      coinId: cryptoItemId,
+    });
     setDropDown(false);
   };
 
@@ -111,8 +126,13 @@ function PricesDetails(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setResults({...parameters});
-    setResultJSX(true);
+    if (moment(parameters.date, "DD-MM-YYYY", true).isValid()) {
+      setResults({ ...parameters });
+      setResultJSX(true);
+      setErrorMsg('')
+    } else {
+      setErrorMsg('Error: Date is formatted incorrectly or unavailable')
+    }
   };
 
   // Crypto Drop Down List
@@ -132,83 +152,104 @@ function PricesDetails(props) {
   const combList = parameters.coin && cryptoStartCoin.concat(cryptoIncludeCoin);
 
   const cryptoJSX =
-    (parameters.coin && dropDown) &&
+    parameters.coin &&
+    dropDown &&
     combList.map((cryptoItem) => {
-      let coinImage = `https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/${cryptoItem.id}.png`
+      let coinImage = `https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/${cryptoItem.id}.png`;
       return (
-      <div className='cryptoJSXDiv'>
-        <img className='cryptoCoinImage' alt='coinImage' onError={(e)=>{e.target.src='https://assets.coingecko.com/coins/images/19978/thumb/logo.f3a6bd24.png?1636355493'}} src={coinImage}/>
-        <span
-          className="cryptoElement regularFont"
-          onClick={(e) => handleCryptoClick(e, cryptoItem.id, cryptoItem.name)}>
-          {cryptoItem.name}
-        </span>
-      </div>
-    )});
+        <div className="cryptoJSXDiv">
+          <img
+            className="cryptoCoinImage"
+            alt="coinImage"
+            onError={(e) => {
+              e.target.src =
+                "https://assets.coingecko.com/coins/images/19978/thumb/logo.f3a6bd24.png?1636355493";
+            }}
+            src={coinImage}
+          />
+          <span
+            className="cryptoElement regularFont"
+            onClick={(e) =>
+              handleCryptoClick(e, cryptoItem.id, cryptoItem.name)
+            }
+          >
+            {cryptoItem.name}
+          </span>
+        </div>
+      );
+    });
 
-    let iconWebsite = `https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/128/${results.coinId}.png`
+  let iconWebsite = `https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/128/${results.coinId}.png`;
 
   // Results JSX
 
   const resultsJSX = resultJSX && (
-      <div className='resultsJSXBorder'>
-        <img className='cryptoCoinImage'src={iconWebsite} alt='coinImage' onError={(e)=>{e.target.src='https://www.pngall.com/wp-content/uploads/2/Question-Mark-PNG-Image.png'}}/>
-        <div className='resultsJSXText'>
-          <h1 className='cryptoText'>
-            Your <span>${results.price}</span> is now worth:
-          </h1>
-          <h1 className='boldText'>${cryptoCalc.priceNow}</h1>
-          <h1 className='cryptoText'>a change of:</h1>
-          <h1 className='boldText'>{cryptoCalc.percentChange}%</h1>
-        </div>
+    <div className="resultsJSXBorder">
+      <img
+        className="cryptoCoinImage"
+        src={iconWebsite}
+        alt="coinImage"
+        onError={(e) => {
+          e.target.src =
+            "https://www.pngall.com/wp-content/uploads/2/Question-Mark-PNG-Image.png";
+        }}
+      />
+      <div className="resultsJSXText">
+        <h1 className="cryptoText">
+          Your <span>${results.price}</span> is now worth:
+        </h1>
+        <h1 className="boldText">${cryptoCalc.priceNow}</h1>
+        <h1 className="cryptoText">a change of:</h1>
+        <h1 className="boldText">{cryptoCalc.percentChange}%</h1>
       </div>
+    </div>
   );
 
-  const loadingJSX = 
-      <div className='skeletonCrypto'>
-        <div className='skeleton-icon'></div>
-        <div className='skeletonTextArea'>
-          <div className='skeleton-text'></div>
-          <div className='skeleton-text-big'></div>
-          <div className='skeleton-text'></div>
-          <div className='skeleton-text-big'></div>
-          <div className='skeleton-text'></div>
-          <div className='skeleton-text-big'></div>
-        </div>
+  const loadingJSX = (
+    <div className="skeletonCrypto">
+      <div className="skeleton-icon"></div>
+      <div className="skeletonTextArea">
+        <div className="skeleton-text"></div>
+        <div className="skeleton-text-big"></div>
+        <div className="skeleton-text"></div>
+        <div className="skeleton-text-big"></div>
+        <div className="skeleton-text"></div>
+        <div className="skeleton-text-big"></div>
       </div>
+    </div>
+  );
 
   // Use Effects
 
   useEffect(() => {
-    cryptoApiCall()
-  }, [])
+    cryptoApiCall();
+  }, []);
 
   useEffect(() => {
     currentApiCall();
-    chartApiCall()
-  }, [results])
+    chartApiCall();
+  }, [results]);
 
   useEffect(() => {
     oldApiCall();
-    scrollFunction()
-  }, [price.current])
+    scrollFunction();
+  }, [price.current]);
 
   useEffect(() => {
-    (price.current && price.past) && cryptoCalculator();
+    price.current && price.past && cryptoCalculator();
     setParameters({
-      date: '',
-      price: '',
-      coin: '',
-    })
-  }, [price])
-
+      date: "",
+      price: "",
+      coin: "",
+    });
+  }, [price]);
 
   const dropDown1 = dropDown ? "cryptoDropDownActive" : null;
   const dropDownCSS = parameters.coin.length > 0 ? dropDown1 : null;
   const dropDownVal = `cryptoDropDown ${dropDownCSS}`;
 
   return (
-    <div className='cryptoUpper'>
+    <div className="cryptoUpper">
       <div className="cryptoMain">
         <form className="cryptoForm" onSubmit={handleSubmit}>
           <h1 className="regularFont priceDetailTitle">On </h1>
@@ -218,7 +259,7 @@ function PricesDetails(props) {
             onChange={handleDateChange}
             value={parameters.date}
           ></input>
-          <h1 >You invested</h1>
+          <h1>You invested</h1>
           <input
             type="text"
             onChange={handlePriceChange}
@@ -232,17 +273,27 @@ function PricesDetails(props) {
             value={parameters.coin}
             placeholder="Enter Coin"
           ></input>
-          <div className={dropDownVal}>
-            {cryptoJSX}
-          </div>
+          <div className={dropDownVal}>{cryptoJSX}</div>
           <button onClick={handleSubmit}>Calculate</button>
+          {errorMsg && <h1 className='errorMsg'>{errorMsg}</h1>}
         </form>
-        <div className='inflationDivide'></div>
+        <div className="inflationDivide"></div>
         <div className="resultsJSX" ref={focusDropDown}>
           {resultJSX ? resultsJSX : loadingJSX}
         </div>
-        {resultJSX && <MdOutlineKeyboardArrowDown className='homepageArrow' onClick={handleArrowClick} />}
-        {(resultJSX && cryptoData) && <CryptoChart chartRef={chartRef} cryptoData={cryptoData} results={results} />}
+        {resultJSX && (
+          <MdOutlineKeyboardArrowDown
+            className="homepageArrow"
+            onClick={handleArrowClick}
+          />
+        )}
+        {resultJSX && cryptoData && (
+          <CryptoChart
+            chartRef={chartRef}
+            cryptoData={cryptoData}
+            results={results}
+          />
+        )}
       </div>
     </div>
   );

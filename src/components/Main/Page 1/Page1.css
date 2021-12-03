@@ -339,6 +339,7 @@
 
   .home3 .home3lower {
     width: 900px;
+    height: 75vh;
     flex-direction: row-reverse;
     transition: 0.3s ease;
   }

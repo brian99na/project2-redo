@@ -119,9 +119,9 @@ Minimum Viable Product - This is a way of keeping track of what I *need* to get 
 | Create Required Components, setup routes and links | H | 1hr | 1hr | 
 | Create Homepage (Call APIs, save data to states, useEffect chaining, passing props) | H | 15hrs | > 30hrs | 
 | Create Price & Inflation Component (Calculate current price, add inputs/form, jsx)| H | 15hrs | > 30hrs | 
-| Responsiveness, Styling | M | 5hrs | 10hrs | 
+| Responsiveness, Styling | M | 5hrs | 20hrs | 
 | Recharts Graphs | L | 5hrs | 10hrs | 
-| Total | H | 14hrs | > 81 hrs |
+| Total | H | 14hrs | > 91 hrs |
 
 #Reflection
 
